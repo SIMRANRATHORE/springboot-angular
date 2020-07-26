@@ -1,0 +1,84 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 style="text-align: center">Students</h1><br>
+        <div class="row" [hidden]="!deleteMessage">
+
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="alert alert-info alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Student Data Deleted</strong>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover table-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th>Student First Name</th>
+                    <th>Student Last Name</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students ">
+                    <td>{{student.fname}}</td>
+                    <td>{{student.lname}}</td>
+                    <td><button (click)="deleteStudent(student.id)" class='btn btn-primary'><i
+                      
+                        class="fa fa-futboll-0">Delete</i></button>
+                        <button type="button" (click)="actionModal(student)" class='btn btn-info'  
+                    data-toggle="modal" data-target="#myModal">Update</button>  
+                    </td>
+                    </tr>
+            </tbody><br>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade bg-danger" bsModal #studentModal="bs-modal"
+  role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="container w-50 h-100 mt-4">
+    <div class="card theme_color card-secondary">
+        <div class="row">
+            <div class="card-body col-md-12">
+    <div class="modal-header">
+        <h1 class="modal-title pull-left">Update Student</h1>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">  
+            <span aria-hidden="true">×</span>  
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="studentupdateform">
+            <label>Student Id</label>
+            <div class="form-group">
+                <input type="text" class="form-control"  formControlName="student_id" readonly> 
+            </div>
+            <label>Student First Name</label>
+            <div class="form-group">
+                <input type="text" class="form-control"  formControlName="fname"> 
+            </div>
+            <label>Student Last Name</label>
+            <div class="form-group">
+                <input type="text" class="form-control"  formControlName="lname"> 
+            </div>
+        </form>
+
+    </div>
+
+    <div class="modal-footer">  
+       <button type="submit" class="btn btn-success" (click)="updateStu()">Update</button> 
+        <button type="button" class="btn btn-secondary" (click)="closeModal()" data-dismiss="modal">Close</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+</div>
+       
+
+

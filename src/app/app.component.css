@@ -1,0 +1,16 @@
+.navbar {
+    margin-top: 20px;
+}
+
+.dropdown-toggle.btn-primary {
+    margin-right: 20px;
+}
+
+
+
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    margin-right: 20px;
+}
+
+ul {
+    list-style: none;}

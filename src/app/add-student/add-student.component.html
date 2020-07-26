@@ -1,0 +1,49 @@
+<h3 style="text-align: center;">Create Student</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="studentsaveform" #savestudent (ngSubmit)="saveStudent(saveStudent)">  
+          <div class="form-group">  
+              <label for="fname">Student First Name</label>  
+              <input type="text" class="form-control"  formControlName="student_fname" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Student First Name" >  
+              <div class="alert alert-danger" *ngIf = "(StudentFirst.touched) && (StudentFirst.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="StudentFirst.errors.required">Student Fisrt Name is Required</span>  
+                    <span *ngIf = "StudentFirst.errors.minlength">   
+                        MinLength Error   
+                    </span>                     
+              </div>  
+          </div>  
+    
+          <div class="form-group">  
+            <label for="lname">Student Last Name</label>  
+            <input type="text" class="form-control"  formControlName="student_lname" data-toggle="tooltip"   
+               data-placement="right" title="Enter Student Last Name" >  
+            <div class="alert alert-danger" *ngIf = "(StudentLast.touched) && (StudentLast.invalid)"   
+              style="margin-top: 5px;">  
+                <span *ngIf="StudentLast.errors.required">Student Last Name is Required</span>  
+                  <span *ngIf = "StudentLast.errors.minlength">   
+                      MinLength Error   
+                  </span>                     
+              </div>  
+        </div>  
+    
+          
+          <button type="submit" class="btn btn-success">Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>Student Added SuccessFully!</h4>  
+         <button (click)="addStudentForm()" class='btn btn-primary'>Add More Student</button>  
+      </div>        
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
